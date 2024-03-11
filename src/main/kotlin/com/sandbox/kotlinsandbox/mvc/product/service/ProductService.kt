@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.mvc.product.services
+package com.sandbox.kotlinsandbox.mvc.product.service
 
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductItems
@@ -20,7 +20,9 @@ class ProductService(
             title = input.title,
             description = input.description,
             owner = input.owner,
-            price = input.price
+            price = input.price,
+            totalCount = input.count,
+            count = input.count,
         )
         val product = productRepository.save(newProduct)
 

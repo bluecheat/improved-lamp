@@ -12,7 +12,8 @@ class ProductDto {
         val title: String,
         val description: String,
         val owner: String,
-        val price: Int
+        val price: Int,
+        val count: Int
     )
 
     data class Item(

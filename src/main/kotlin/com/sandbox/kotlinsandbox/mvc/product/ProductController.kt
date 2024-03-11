@@ -2,7 +2,7 @@ package com.sandbox.kotlinsandbox.mvc.product
 
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductItems
-import com.sandbox.kotlinsandbox.mvc.product.services.ProductService
+import com.sandbox.kotlinsandbox.mvc.product.service.ProductService
 import jakarta.validation.Valid
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping

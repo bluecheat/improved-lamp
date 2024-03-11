@@ -20,6 +20,10 @@ class Product(
 
     val price: Int,
 
+    val count: Int,
+
+    val totalCount: Int,
+
     ) : BaseEntity() {
 
 }
