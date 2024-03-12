@@ -7,7 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.security.crypto.password.PasswordEncoder
-import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
+import org.springframework.security.web.DefaultSecurityFilterChain
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
 
 @EnableWebSecurity
 @Configuration
@@ -23,7 +24,7 @@ class SecurityConfig(
     fun passwordEncoder(): PasswordEncoder = BCryptPasswordEncoder()
 
     @Bean
-    fun filterChain(http: HttpSecurity) = http
+    fun filterChain(http: HttpSecurity): DefaultSecurityFilterChain = http
         .formLogin { it.disable() }
         .httpBasic { it.disable() }
         .csrf { it.disable() }
@@ -32,6 +33,6 @@ class SecurityConfig(
                 .anyRequest().authenticated()    // 그 외의 모든 요청은 인증 필요
         }
         .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }    // 세션을 사용하지 않으므로 STATELESS 설정
-        .addFilterBefore(jwtAuthenticationFilter, BasicAuthenticationFilter::class.java)
+        .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter::class.java)
         .build()
 }

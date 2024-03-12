@@ -1,7 +1,6 @@
 package com.sandbox.kotlinsandbox.mvc.product
 
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
-import com.sandbox.kotlinsandbox.mvc.product.dto.ProductItems
 import com.sandbox.kotlinsandbox.mvc.product.service.ProductService
 import jakarta.validation.Valid
 import org.springframework.security.core.annotation.AuthenticationPrincipal
@@ -17,16 +16,11 @@ class ProductController(
 ) {
 
     @GetMapping("/v1/products")
-    fun getProducts(): ProductItems {
-        return productService.getProducts()
-    }
+    fun getProducts() = productService.getProducts()
 
     @PostMapping("/v1/products")
     fun registerProducts(
         @Valid @RequestBody request: ProductDto.CreateRequest,
         @AuthenticationPrincipal user: User
-    ): ProductDto.Item {
-
-        return productService.saveProduct(request, user.username)
-    }
+    ) = productService.saveProduct(request, user.username)
 }
