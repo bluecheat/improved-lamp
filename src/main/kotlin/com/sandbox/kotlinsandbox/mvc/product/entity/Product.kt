@@ -1,5 +1,6 @@
 package com.sandbox.kotlinsandbox.mvc.product.entity
 
+import com.sandbox.kotlinsandbox.mvc.user.entity.User
 import com.sandbox.kotlinsandbox.support.jpa.BaseEntity
 import jakarta.persistence.*
 
@@ -16,7 +17,9 @@ class Product(
     @Column(length = 500, nullable = false)
     val description: String,
 
-    val owner: String,
+    @ManyToOne
+    @JoinColumn
+    val owner: User,
 
     val price: Int,
 
