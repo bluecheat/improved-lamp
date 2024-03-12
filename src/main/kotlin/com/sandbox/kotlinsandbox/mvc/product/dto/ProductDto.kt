@@ -11,7 +11,6 @@ class ProductDto {
         @field:NotBlank(message = "상품 제목은 공백일 수 없습니다.")
         val title: String,
         val description: String,
-        val owner: String,
         val price: Int,
         val count: Int
     )

@@ -16,7 +16,5 @@ class AuthController(
     fun join(@Valid @RequestBody request: AuthDto.JoinRequest) = authService.join(request)
 
     @PostMapping("/v1/auth/login")
-    fun join(@Valid request: AuthDto.LoginRequest) {
-        return
-    }
+    fun login(@Valid @RequestBody request: AuthDto.LoginRequest) = authService.login(request)
 }

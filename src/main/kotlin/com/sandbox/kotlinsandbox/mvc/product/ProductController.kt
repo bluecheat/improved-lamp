@@ -4,6 +4,8 @@ import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
 import com.sandbox.kotlinsandbox.mvc.product.dto.ProductItems
 import com.sandbox.kotlinsandbox.mvc.product.service.ProductService
 import jakarta.validation.Valid
+import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.security.core.userdetails.User
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
@@ -20,7 +22,11 @@ class ProductController(
     }
 
     @PostMapping("/v1/products")
-    fun registerProducts(@Valid @RequestBody productDto: ProductDto.CreateRequest): ProductDto.Item {
-        return productService.saveProduct(productDto)
+    fun registerProducts(
+        @Valid @RequestBody request: ProductDto.CreateRequest,
+        @AuthenticationPrincipal user: User
+    ): ProductDto.Item {
+
+        return productService.saveProduct(request, user.username)
     }
 }

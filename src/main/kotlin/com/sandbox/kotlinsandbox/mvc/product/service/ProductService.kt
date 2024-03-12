@@ -15,11 +15,11 @@ class ProductService(
         return setOf()
     }
 
-    fun saveProduct(input: ProductDto.CreateRequest): ProductDto.Item {
+    fun saveProduct(input: ProductDto.CreateRequest, creator: String): ProductDto.Item {
         val newProduct = Product(
             title = input.title,
             description = input.description,
-            owner = input.owner,
+            owner = creator,
             price = input.price,
             totalCount = input.count,
             count = input.count,
