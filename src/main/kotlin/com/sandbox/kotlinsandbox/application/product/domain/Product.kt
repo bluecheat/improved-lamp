@@ -3,7 +3,9 @@ package com.sandbox.kotlinsandbox.application.product.domain
 import com.sandbox.kotlinsandbox.application.user.domain.User
 import com.sandbox.kotlinsandbox.support.jpa.BaseEntity
 import jakarta.persistence.*
+import org.hibernate.annotations.DynamicUpdate
 
+@DynamicUpdate
 @Entity
 class Product(
 

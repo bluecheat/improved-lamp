@@ -7,8 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
 
-interface ProductRepository : JpaRepository<Product, Long> {
-
+interface ProductRepository : JpaRepository<Product, Long>, ProductRepositoryCustom {
 
     @Query("select p from Product p inner join fetch p.owner")
     override fun findAll(pageable: Pageable): Page<Product>

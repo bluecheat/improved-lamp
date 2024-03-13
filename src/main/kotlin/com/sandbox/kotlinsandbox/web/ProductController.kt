@@ -20,10 +20,11 @@ class ProductController(
     @GetMapping("/v1/products")
     fun getProducts(
         @PageableDefault(
-            page = 1, size = 10, sort = ["id"], direction = Sort.Direction.DESC
-        )
-        pageable: Pageable
-    ) = productViewService.getProducts(pageable)
+            page = 0, size = 10, sort = ["id"], direction = Sort.Direction.DESC,
+        ) pageable: Pageable,
+        @RequestParam("title") title: String?,
+        @RequestParam("owner") owner: String?,
+    ) = productViewService.getProducts(pageable, ProductDto.SearchRequest(title, owner))
 
     @GetMapping("/v1/products/{id}")
     fun updateProducts(

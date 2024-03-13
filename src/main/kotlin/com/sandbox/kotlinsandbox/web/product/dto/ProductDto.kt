@@ -11,6 +11,11 @@ typealias ProductItems = Page<ProductDto.Item>
 
 class ProductDto {
 
+    data class SearchRequest(
+        val title: String?,
+        val owner: String?,
+    )
+
     data class CreateRequest(
         @field:NotBlank(message = "상품 제목은 공백일 수 없습니다.")
         val title: String,

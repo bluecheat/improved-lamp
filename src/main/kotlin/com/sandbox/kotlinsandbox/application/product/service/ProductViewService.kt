@@ -6,14 +6,16 @@ import com.sandbox.kotlinsandbox.web.product.dto.ProductItems
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 
 @Service
 class ProductViewService(
     private val productRepository: ProductRepository,
 ) {
 
-    fun getProducts(pageable: Pageable): ProductItems {
-        return productRepository.findAll(pageable).map {
+    @Transactional(readOnly = true)
+    fun getProducts(pageable: Pageable, condition: ProductDto.SearchRequest): ProductItems {
+        return productRepository.findAllBy(pageable, title = condition.title, owner = condition.owner).map {
             ProductDto.Item(
                 id = it.id,
                 title = it.title,
@@ -26,6 +28,7 @@ class ProductViewService(
         }
     }
 
+    @Transactional(readOnly = true)
     fun getProduct(productId: Long): ProductDto.Item {
         val product = productRepository.findByIdOrNull(productId) ?: throw IllegalArgumentException("해당 상품은 존재하지 않습니다.")
         return ProductDto.Item(
