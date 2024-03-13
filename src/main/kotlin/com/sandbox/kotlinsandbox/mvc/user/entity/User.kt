@@ -1,13 +1,12 @@
 package com.sandbox.kotlinsandbox.mvc.user.entity
 
 import com.sandbox.kotlinsandbox.support.jpa.BaseEntity
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.Id
+import jakarta.persistence.*
 import org.hibernate.annotations.GenericGenerator
 import java.util.*
 
 @Entity
+@Table(uniqueConstraints = [UniqueConstraint(columnNames = ["email"])])
 class User(
     @Id
     @GeneratedValue(generator = "uuid2")

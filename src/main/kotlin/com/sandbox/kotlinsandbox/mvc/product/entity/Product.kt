@@ -12,21 +12,38 @@ class Product(
     val id: Long = 0,
 
     @Column(length = 150, nullable = false)
-    val title: String,
+    var title: String,
 
     @Column(length = 500, nullable = false)
-    val description: String,
+    var description: String,
 
     @ManyToOne
     @JoinColumn
     val owner: User,
 
-    val price: Int,
+    var price: Int,
 
-    val count: Int,
+    var count: Int,
 
-    val totalCount: Int,
+    var totalCount: Int,
 
     ) : BaseEntity() {
 
+    fun decrease() {
+        count--
+    }
+
+    fun update(newTitle: String?, newDescription: String?, newPrice: Int?) {
+        newTitle?.let {
+            title = it
+        }
+
+        newDescription?.let {
+            description = it
+        }
+
+        newPrice?.let {
+            price = it
+        }
+    }
 }
