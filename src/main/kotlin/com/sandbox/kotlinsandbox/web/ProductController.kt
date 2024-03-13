@@ -22,8 +22,8 @@ class ProductController(
         @PageableDefault(
             page = 0, size = 10, sort = ["id"], direction = Sort.Direction.DESC,
         ) pageable: Pageable,
-        @RequestParam("title") title: String?,
-        @RequestParam("owner") owner: String?,
+        @RequestParam(required = false, name = "title") title: String?,
+        @RequestParam(required = false, name = "owner") owner: String?,
     ) = productViewService.getProducts(pageable, ProductDto.SearchRequest(title, owner))
 
     @GetMapping("/v1/products/{id}")

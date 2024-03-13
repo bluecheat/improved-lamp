@@ -4,6 +4,7 @@ import com.querydsl.core.types.dsl.BooleanExpression
 import com.querydsl.jpa.impl.JPAQueryFactory
 import com.sandbox.kotlinsandbox.application.product.domain.Product
 import com.sandbox.kotlinsandbox.application.product.domain.QProduct
+import com.sandbox.kotlinsandbox.application.user.domain.QUser
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.support.PageableExecutionUtils
@@ -17,6 +18,7 @@ class ProductRepositoryImpl(
     override fun findAllBy(pageable: Pageable, title: String?, owner: String?): Page<Product> {
         val product = QProduct.product
         val list = query.selectFrom(product)
+            .innerJoin(product.owner, QUser.user)
             .where(likeTitle(title))
             .where(likeOwner(owner))
             .limit(pageable.pageSize.toLong())
@@ -33,10 +35,10 @@ class ProductRepositoryImpl(
     }
 
     private fun likeTitle(title: String?): BooleanExpression? {
-        return title?.let { QProduct.product.title.like("%{$title}%") }
+        return title?.let { QProduct.product.title.like("%${title}%") }
     }
 
     private fun likeOwner(userName: String?): BooleanExpression? {
-        return userName?.let { QProduct.product.owner.name.like("%{$userName}%") }
+        return userName?.let { QProduct.product.owner.name.like("%${userName}%") }
     }
 }
