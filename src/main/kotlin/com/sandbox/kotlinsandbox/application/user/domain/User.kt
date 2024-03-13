@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.mvc.user.entity
+package com.sandbox.kotlinsandbox.application.user.domain
 
 import com.sandbox.kotlinsandbox.support.jpa.BaseEntity
 import jakarta.persistence.*

@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.mvc.product.dto
+package com.sandbox.kotlinsandbox.web.product.dto
 
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min

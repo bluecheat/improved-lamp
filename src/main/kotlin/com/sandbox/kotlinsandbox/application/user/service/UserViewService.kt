@@ -1,7 +1,7 @@
-package com.sandbox.kotlinsandbox.mvc.user.service
+package com.sandbox.kotlinsandbox.application.user.service
 
-import com.sandbox.kotlinsandbox.mvc.user.entity.User
-import com.sandbox.kotlinsandbox.mvc.user.repository.UserRepository
+import com.sandbox.kotlinsandbox.application.user.domain.User
+import com.sandbox.kotlinsandbox.application.user.infrastructure.UserRepository
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import java.util.*

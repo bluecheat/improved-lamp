@@ -1,8 +1,8 @@
-package com.sandbox.kotlinsandbox.mvc.auth.service
+package com.sandbox.kotlinsandbox.application.auth.service
 
-import com.sandbox.kotlinsandbox.mvc.auth.dto.AuthDto
-import com.sandbox.kotlinsandbox.mvc.user.entity.User
-import com.sandbox.kotlinsandbox.mvc.user.repository.UserRepository
+import com.sandbox.kotlinsandbox.application.user.domain.User
+import com.sandbox.kotlinsandbox.application.user.infrastructure.UserRepository
+import com.sandbox.kotlinsandbox.web.auth.dto.AuthDto
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

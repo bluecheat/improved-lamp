@@ -1,8 +1,8 @@
-package com.sandbox.kotlinsandbox.mvc.product
+package com.sandbox.kotlinsandbox.web
 
-import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
-import com.sandbox.kotlinsandbox.mvc.product.service.ProductService
-import com.sandbox.kotlinsandbox.mvc.product.service.ProductViewService
+import com.sandbox.kotlinsandbox.application.product.service.ProductService
+import com.sandbox.kotlinsandbox.application.product.service.ProductViewService
+import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
 import jakarta.validation.Valid
 import org.springframework.data.domain.Pageable
 import org.springframework.data.domain.Sort

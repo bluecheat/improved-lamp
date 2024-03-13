@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.mvc.auth.dto
+package com.sandbox.kotlinsandbox.web.auth.dto
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank

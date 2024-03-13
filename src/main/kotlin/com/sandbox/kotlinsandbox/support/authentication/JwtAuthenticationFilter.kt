@@ -1,6 +1,6 @@
 package com.sandbox.kotlinsandbox.support.authentication
 
-import com.sandbox.kotlinsandbox.mvc.auth.service.TokenProvider
+import com.sandbox.kotlinsandbox.application.auth.service.TokenProvider
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse

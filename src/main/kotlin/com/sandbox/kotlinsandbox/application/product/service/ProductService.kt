@@ -1,9 +1,9 @@
-package com.sandbox.kotlinsandbox.mvc.product.service
+package com.sandbox.kotlinsandbox.application.product.service
 
-import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
-import com.sandbox.kotlinsandbox.mvc.product.entity.Product
-import com.sandbox.kotlinsandbox.mvc.product.repository.ProductRepository
-import com.sandbox.kotlinsandbox.mvc.user.service.UserViewService
+import com.sandbox.kotlinsandbox.application.product.domain.Product
+import com.sandbox.kotlinsandbox.application.product.infrastructure.ProductRepository
+import com.sandbox.kotlinsandbox.application.user.service.UserViewService
+import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional

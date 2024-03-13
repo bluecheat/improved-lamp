@@ -1,7 +1,7 @@
-package com.sandbox.kotlinsandbox.mvc.auth
+package com.sandbox.kotlinsandbox.web
 
-import com.sandbox.kotlinsandbox.mvc.auth.dto.AuthDto
-import com.sandbox.kotlinsandbox.mvc.auth.service.AuthService
+import com.sandbox.kotlinsandbox.application.auth.service.AuthService
+import com.sandbox.kotlinsandbox.web.auth.dto.AuthDto
 import org.springframework.validation.annotation.Validated
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody

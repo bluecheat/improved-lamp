@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.mvc.auth.service
+package com.sandbox.kotlinsandbox.application.auth.service
 
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm

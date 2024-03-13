@@ -1,6 +1,6 @@
-package com.sandbox.kotlinsandbox.mvc.product.repository
+package com.sandbox.kotlinsandbox.application.product.infrastructure
 
-import com.sandbox.kotlinsandbox.mvc.product.entity.Product
+import com.sandbox.kotlinsandbox.application.product.domain.Product
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.jpa.repository.JpaRepository

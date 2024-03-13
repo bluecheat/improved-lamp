@@ -1,8 +1,8 @@
-package com.sandbox.kotlinsandbox.mvc.product.service
+package com.sandbox.kotlinsandbox.application.product.service
 
-import com.sandbox.kotlinsandbox.mvc.product.dto.ProductDto
-import com.sandbox.kotlinsandbox.mvc.product.dto.ProductItems
-import com.sandbox.kotlinsandbox.mvc.product.repository.ProductRepository
+import com.sandbox.kotlinsandbox.application.product.infrastructure.ProductRepository
+import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
+import com.sandbox.kotlinsandbox.web.product.dto.ProductItems
 import org.springframework.data.domain.Pageable
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
