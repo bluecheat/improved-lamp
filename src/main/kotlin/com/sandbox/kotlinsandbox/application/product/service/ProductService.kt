@@ -14,7 +14,7 @@ class ProductService(
     private val productRepository: ProductRepository,
 ) {
 
-    fun saveProduct(input: ProductDto.CreateRequest, userId: String): ProductDto.Item {
+    internal fun saveProduct(input: ProductDto.CreateRequest, userId: String): ProductDto.Item {
         val user = userViewService.validAndGetUser(userId)
         val newProduct = Product(
             title = input.title,
@@ -38,7 +38,7 @@ class ProductService(
     }
 
     @Transactional
-    fun updateProduct(productId: Long, input: ProductDto.UpdateRequest, userId: String): ProductDto.Item {
+    internal fun updateProduct(productId: Long, input: ProductDto.UpdateRequest, userId: String): ProductDto.Item {
         userViewService.validAndGetUser(userId)
         val product = productRepository.findByIdOrNull(productId) ?: throw IllegalArgumentException("해당 상품은 존재하지 않습니다.")
 

@@ -8,7 +8,6 @@ import org.hibernate.annotations.DynamicUpdate
 @DynamicUpdate
 @Entity
 class Product(
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
