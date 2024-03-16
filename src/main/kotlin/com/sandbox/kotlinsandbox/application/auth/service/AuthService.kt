@@ -34,8 +34,12 @@ class AuthService(
     @Transactional
     fun login(request: AuthDto.LoginRequest): AuthDto.LoginResponse {
         val member = userRepository.findByEmail(request.email)
-            .takeIf { encoder.matches(request.password, it.password) }
             ?: throw IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다.")
+
+        if (!encoder.matches(request.password, member.password)) {
+            throw IllegalArgumentException("아이디 또는 비밀번호가 일치하지 않습니다.")
+        }
+
         val token = tokenProvider.createToken("${member.id}:${member.name}")
         return AuthDto.LoginResponse(token)
     }
