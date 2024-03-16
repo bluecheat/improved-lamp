@@ -11,7 +11,6 @@ import io.kotest.extensions.spring.SpringTestLifecycleMode
 import io.kotest.matchers.should
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.startWith
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.transaction.annotation.Transactional
@@ -19,16 +18,12 @@ import org.springframework.transaction.annotation.Transactional
 
 @Transactional
 @SpringBootTest
-internal class AuthServiceSpecTest : BehaviorSpec() {
-    @Autowired
-    private lateinit var authService: AuthService
+internal class AuthServiceSpecTest(
+    private var authService: AuthService,
+    private var userRepository: UserRepository,
+    private var encoder: PasswordEncoder,
 
-    @Autowired
-    private lateinit var userRepository: UserRepository
-
-    @Autowired
-    private lateinit var encoder: PasswordEncoder
-
+    ) : BehaviorSpec() {
     override fun extensions() = listOf(SpringTestExtension(SpringTestLifecycleMode.Root))
 
     init {
