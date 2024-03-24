@@ -1,8 +1,8 @@
 package com.sandbox.kotlinsandbox.application.product
 
 import com.sandbox.kotlinsandbox.application.product.domain.Product
-import com.sandbox.kotlinsandbox.application.product.service.ProductViewService
-import com.sandbox.kotlinsandbox.application.product.service.out.ProductRepositoryPort
+import com.sandbox.kotlinsandbox.application.product.port.out.ProductRepositoryPort
+import com.sandbox.kotlinsandbox.application.product.service.ProductViewUseCase
 import com.sandbox.kotlinsandbox.application.user.domain.User
 import io.kotest.core.spec.style.BehaviorSpec
 import io.kotest.matchers.collections.shouldHaveSize
@@ -17,7 +17,7 @@ import org.springframework.data.domain.PageRequest
 val productRepositoryPort = mockk<ProductRepositoryPort>()
 
 @InjectMockKs
-val productViewPort = ProductViewService(productRepositoryPort)
+val productViewPort = ProductViewUseCase(productRepositoryPort)
 
 internal class ProductServiceSpecTest(
 

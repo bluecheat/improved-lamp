@@ -1,20 +1,20 @@
 package com.sandbox.kotlinsandbox.application.product.service
 
 import com.sandbox.kotlinsandbox.application.product.domain.Product
-import com.sandbox.kotlinsandbox.application.product.infrastructure.ProductRepository
-import com.sandbox.kotlinsandbox.application.user.service.UserViewService
+import com.sandbox.kotlinsandbox.application.product.port.`in`.ProductCommandPort
+import com.sandbox.kotlinsandbox.application.product.port.out.ProductRepositoryPort
+import com.sandbox.kotlinsandbox.application.user.port.`in`.UserViewPort
 import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
-import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ProductService(
-    private val userViewService: UserViewService,
-    private val productRepository: ProductRepository,
-) {
+class ProductUseCase(
+    private val userViewService: UserViewPort,
+    private val productRepository: ProductRepositoryPort,
+) : ProductCommandPort {
 
-    internal fun saveProduct(input: ProductDto.CreateRequest, userId: String): ProductDto.Item {
+    override fun saveProduct(input: ProductDto.CreateRequest, userId: String): ProductDto.Item {
         val user = userViewService.validAndGetUser(userId)
         val newProduct = Product(
             title = input.title,
@@ -38,7 +38,7 @@ class ProductService(
     }
 
     @Transactional
-    internal fun updateProduct(productId: Long, input: ProductDto.UpdateRequest, userId: String): ProductDto.Item {
+    override fun updateProduct(productId: Long, input: ProductDto.UpdateRequest, userId: String): ProductDto.Item {
         userViewService.validAndGetUser(userId)
         val product = productRepository.findByIdOrNull(productId) ?: throw IllegalArgumentException("해당 상품은 존재하지 않습니다.")
 

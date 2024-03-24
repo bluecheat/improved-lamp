@@ -1,7 +1,7 @@
 package com.sandbox.kotlinsandbox.application.product.service
 
-import com.sandbox.kotlinsandbox.application.product.service.`in`.ProductViewPort
-import com.sandbox.kotlinsandbox.application.product.service.out.ProductRepositoryPort
+import com.sandbox.kotlinsandbox.application.product.port.`in`.ProductViewPort
+import com.sandbox.kotlinsandbox.application.product.port.out.ProductRepositoryPort
 import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
 import com.sandbox.kotlinsandbox.web.product.dto.ProductItems
 import org.springframework.data.domain.Pageable
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class ProductViewService(
+class ProductViewUseCase(
     private val productRepository: ProductRepositoryPort,
 ) : ProductViewPort {
 

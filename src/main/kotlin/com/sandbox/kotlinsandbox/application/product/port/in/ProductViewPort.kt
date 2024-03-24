@@ -1,4 +1,4 @@
-package com.sandbox.kotlinsandbox.application.product.service.`in`
+package com.sandbox.kotlinsandbox.application.product.port.`in`
 
 import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
 import com.sandbox.kotlinsandbox.web.product.dto.ProductItems

@@ -1,7 +1,7 @@
 package com.sandbox.kotlinsandbox.web
 
-import com.sandbox.kotlinsandbox.application.product.service.ProductService
-import com.sandbox.kotlinsandbox.application.product.service.`in`.ProductViewPort
+import com.sandbox.kotlinsandbox.application.product.port.`in`.ProductCommandPort
+import com.sandbox.kotlinsandbox.application.product.port.`in`.ProductViewPort
 import com.sandbox.kotlinsandbox.web.product.dto.ProductDto
 import jakarta.validation.Valid
 import org.springframework.data.domain.Pageable
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 class ProductController(
-    private val productService: ProductService,
+    private val productService: ProductCommandPort,
     private val productViewService: ProductViewPort,
 ) {
 

@@ -3,7 +3,7 @@ package com.sandbox.kotlinsandbox.application.payment.service
 import com.sandbox.kotlinsandbox.application.payment.domain.Payment
 import com.sandbox.kotlinsandbox.application.payment.infrastructure.PaymentRepository
 import com.sandbox.kotlinsandbox.application.product.infrastructure.ProductRepository
-import com.sandbox.kotlinsandbox.application.user.service.UserViewService
+import com.sandbox.kotlinsandbox.application.user.service.UserViewUseCase
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Propagation
@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Service
 class PaymentService(
-    private val userViewService: UserViewService,
+    private val userViewService: UserViewUseCase,
     private val paymentRepository: PaymentRepository,
     private val productRepository: ProductRepository,
 ) {
